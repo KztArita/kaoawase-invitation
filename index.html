@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>両家顔合わせ食事会のご案内</title>
+  <style>
+    :root {
+      --bg: #f8f3ec;
+      --paper: #fffaf3;
+      --ink: #2f2a25;
+      --sub: #786c60;
+      --accent: #b99362;
+      --line: #dfcdb7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.85), transparent 38%),
+        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 18px 14px 32px;
+    }
+
+    .card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(96, 74, 47, 0.12);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 40px 22px 34px;
+      text-align: center;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(234,220,200,0.75), rgba(255,250,243,0.95)),
+        var(--paper);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 78px;
+      height: 78px;
+      border: 1px solid rgba(185,147,98,0.38);
+      border-radius: 50%;
+    }
+
+    .hero::before {
+      top: -28px;
+      left: -22px;
+    }
+
+    .hero::after {
+      right: -22px;
+      bottom: -28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      font-size: clamp(1.85rem, 8vw, 2.7rem);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      line-height: 1.35;
+    }
+
+    .families {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 8px 16px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--sub);
+      font-size: 0.98rem;
+    }
+
+    .date-box {
+      margin: 24px auto 0;
+      padding: 14px 16px;
+      max-width: 320px;
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(185,147,98,0.34);
+      border-radius: 18px;
+    }
+
+    .date-main {
+      display: block;
+      font-size: 1.28rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .date-sub {
+      display: block;
+      margin-top: 2px;
+      color: var(--sub);
+      font-size: 0.9rem;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .content {
+      padding: 28px 20px 34px;
+    }
+
+    .greeting {
+      margin: 0 auto 28px;
+      color: #3c352e;
+      font-size: 0.98rem;
+      text-align: left;
+    }
+
+    .names {
+      margin-top: 20px;
+      text-align: right;
+      font-size: 1.04rem;
+      letter-spacing: 0.18em;
+    }
+
+    .section {
+      margin-top: 26px;
+      padding: 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.48);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+
+    .section-title .en {
+      color: var(--accent);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section-title .ja {
+      font-size: 1.14rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+    }
+
+    .info-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      display: grid;
+      grid-template-columns: 5.5em 1fr;
+      gap: 8px;
+      padding: 9px 0;
+      border-top: 1px dashed rgba(185,147,98,0.34);
+      font-size: 0.96rem;
+    }
+
+    .info-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .label {
+      color: var(--sub);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .value {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .notes {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      font-size: 0.94rem;
+    }
+
+    .notes li {
+      position: relative;
+      padding: 10px 0 10px 22px;
+      border-top: 1px dashed rgba(185,147,98,0.34);
+    }
+
+    .notes li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .notes li::before {
+      content: "◎";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+
+    .notes li:first-child::before {
+      top: 0;
+    }
+
+    .map-link {
+      display: block;
+      margin-top: 16px;
+      padding: 12px 14px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--sub);
+      text-align: center;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      letter-spacing: 0.16em;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 380px) {
+      .page {
+        padding: 10px 8px 22px;
+      }
+
+      .hero {
+        padding: 34px 18px 30px;
+      }
+
+      .content {
+        padding: 24px 16px 30px;
+      }
+
+      .section {
+        padding: 18px 15px;
+      }
+
+      .info-list li {
+        grid-template-columns: 4.8em 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="card" aria-label="両家顔合わせ食事会のWEB招待状">
+      <header class="hero">
+        <p class="eyebrow">Invitation</p>
+        <h1>両家<br>顔合わせ<br>食事会</h1>
+        <div class="families" aria-label="両家名">
+          <span>有田家</span>
+          <span>｜</span>
+          <span>林家</span>
+        </div>
+        <div class="date-box">
+          <span class="date-main">令和8年5月24日（日）</span>
+          <span class="date-sub">13:15 Start</span>
+        </div>
+      </header>
+
+      <section class="content">
+        <p class="greeting">
+          ご家族皆様お元気でお過ごしでしょうか。<br>
+          日頃より私たちのことを温かく見守っていただき、ありがとうございます。<br><br>
+          さてこのたび、私たちの結婚に向け、ささやかながら両家の顔合わせを兼ねた食事会を催したいと思います。<br>
+          皆様にお会いできることを、心より楽しみにしております。
+        </p>
+        <p class="names">一翔　美佑</p>
+
+        <section class="section" aria-labelledby="venue-title">
+          <h2 class="section-title" id="venue-title">
+            <span class="en">Venue</span>
+            <span class="ja">会場</span>
+          </h2>
+          <ul class="info-list">
+            <li>
+              <span class="label">会場</span>
+              <span class="value">豆匠 広島本店</span>
+            </li>
+            <li>
+              <span class="label">住所</span>
+              <span class="value">広島県広島市南区比治山町6-24</span>
+            </li>
+            <li>
+              <span class="label">開始時刻</span>
+              <span class="value">13:15</span>
+            </li>
+          </ul>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E8%B1%86%E5%8C%A0%20%E5%BA%83%E5%B3%B6%E6%9C%AC%E5%BA%97%20%E5%BA%83%E5%B3%B6%E7%9C%8C%E5%BA%83%E5%B3%B6%E5%B8%82%E5%8D%97%E5%8C%BA%E6%AF%94%E6%B2%BB%E5%B1%B1%E7%94%BA6-24" target="_blank" rel="noopener noreferrer">
+            Google Mapで開く
+          </a>
+        </section>
+
+        <div class="footer">
+          Thank you
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
